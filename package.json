@@ -1,0 +1,12 @@
+{
+  "name": "reactindecision.loc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/volosgoto/reactindecision.git",
+  "author": "volosgoto <volosgoto@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}

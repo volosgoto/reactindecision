@@ -10,3 +10,17 @@
   live-server folder_name  
     for example
   live-server public
+
+4. Install Babel
+    sudo yarn global add babel-cli@6.24.1
+    yarn init
+    // install env preset  
+    // install react preset 
+    yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
+
+5. Babel config    
+   to gerenate jsx
+   yarn install  // install all dependencies
+   babel src/app.js --out-file=public/scripts/app.js --presets=env,react
+   for watch changes
+   babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
