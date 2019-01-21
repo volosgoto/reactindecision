@@ -1,0 +1,12 @@
+1. yarn --version
+
+2. Install live-server
+  sudo yarn global add live-server
+  or
+  sudo npm install -g live-server
+  live-server -v
+
+3. run life-server 
+  live-server folder_name  
+    for example
+  live-server public
