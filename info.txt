@@ -1,4 +1,5 @@
-1. yarn --version
+1. sudo npm install yarn --global
+    yarn --version
 
 2. Install live-server
   sudo yarn global add live-server
@@ -19,7 +20,7 @@
     yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
 
 5. Babel config    
-   to gerenate jsx
+   to generate jsx
    yarn install  // install all dependencies
    babel src/app.js --out-file=public/scripts/app.js --presets=env,react
    for watch changes
