@@ -35,18 +35,19 @@ let app = {
   options: ['One', 'Two']
 };
 
-let template = (
-  <div>
-    <h1>{app.title}</h1>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    <p>{app.options.length > 0 ? 'Here your options' : 'No options'}</p>
-    <ol>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ol>
-  </div>
+let template = (<div>
+  <h1> {app.title} </h1>
+  {app.subtitle && <p> {app.subtitle} </p>}
+  <p> {app.options.length > 0 ? 'Here your options' : 'No options'} </p>
+  <ol>
+    <li> Item 1 </li>
+    <li> Item 2 </li>
+    <li> Item 3 </li>
+    <li> Item 4 </li>
+  </ol>
+</div>
 );
+
 
 
 // Use variables in JSX

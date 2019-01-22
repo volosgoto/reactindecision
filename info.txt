@@ -1,5 +1,18 @@
+Check npm in system $PATH
+  echo $PATH
+    then
+  npm bin -g // It will display the path (C:\Users\gf\AppData\Roaming\npm) and also show (not in PATH env variable)
+    Open file .bashrc and add to the end
+  export PATH=$PATH:/home/andrey/npm/bin
+
+
 1. sudo npm install yarn --global
-    yarn --version
+    
+    ## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+     yarn --version
 
 2. Install live-server
   sudo yarn global add live-server
@@ -20,8 +33,8 @@
     yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
 
 5. Babel config    
-   to generate jsx
-   yarn install  // install all dependencies
-   babel src/app.js --out-file=public/scripts/app.js --presets=env,react
-   for watch changes
+    to generate js from JSX
+  yarn install  // install all dependencies
+  babel src/app.js --out-file=public/scripts/app.js --presets=env,react
+    for watch changes
    babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch

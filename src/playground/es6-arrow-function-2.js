@@ -1,5 +1,5 @@
 // Arguments functions no longer bound with arrow functions
-const add = function (a, b) {
+const add = function(a, b) {
   return a + b;
 };
 
