@@ -1,11 +1,16 @@
-// ES5 function declaration
 
+// Arrow function always anonymous
+// This keyword, no longer bound. Arrow functions dont have own contect
+// Arguments functions no longer bound with arrow functions
+
+
+// ES5 function declaration
 // let square = function (x) {
 //   return x * x;
 // }; 
 // console.log(square(8));
 
-// Arrow function alwaya anonymous
+
 // let squareArr =(x)=>{
 //   return x * x;
 // };
