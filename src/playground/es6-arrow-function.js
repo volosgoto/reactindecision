@@ -1,6 +1,6 @@
 
 // Arrow function always anonymous
-// This keyword, no longer bound. Arrow functions dont have own contect
+// This keyword, no longer bound. Arrow functions don't have own context
 // Arguments functions no longer bound with arrow functions
 
 
