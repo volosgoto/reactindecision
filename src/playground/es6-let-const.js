@@ -1,19 +1,20 @@
-'use strict';
-
 var nameVar = 'Andrey';
 var nameVar = 'Mike'; //reassigment, no errors. Override previous
 console.log('nameVar', nameVar);
 
-var nameLet = 'Jen';
+
+let nameLet = 'Jen';
 // let nameLet = 'Sam'; // error/ you can't reasign
 // let can't redifine
 nameLet = 'Julia';
 console.log('nameLet', nameLet);
 
-var nameConst = 'Frank';
+
+const nameConst = 'Frank';
 // const nameConst = 'Bob'; //can't redifine
 //can't reasign
 console.log('nameConst', nameConst);
+
 
 // function getPatName() {
 //   var petName = 'Spot';
@@ -38,3 +39,6 @@ if (fullName) {
   console.log(firstName);
 }
 console.log(firstName); // Andrey from if(){}
+
+
+
