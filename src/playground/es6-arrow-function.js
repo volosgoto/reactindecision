@@ -1,5 +1,3 @@
-'use strict';
-
 // ES5 function declaration
 
 // let square = function (x) {
@@ -18,14 +16,13 @@
 
 
 // Challenge arrow functions
-var userName = 'Sam Smith';
-var getFirstName = function getFirstName(name) {
+let userName = 'Sam Smith';
+let getFirstName = (name)=>{    
   return name.split(' ')[0];
 };
 console.log(getFirstName(userName));
 
-var getFirstNameTwo = function getFirstNameTwo(name) {
-  return name.split(' ')[0];
-};
-var userNameTwo = 'Mike Stone';
+
+let getFirstNameTwo = (name) => name.split(' ')[0];
+let userNameTwo = 'Mike Stone';
 console.log(getFirstNameTwo(userNameTwo));
