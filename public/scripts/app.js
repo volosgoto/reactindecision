@@ -1,111 +1,159 @@
 'use strict';
 
-// Arguments functions no longer bound with arrow functions
-
-// Function declaration ES5
-// const add = function(a, b) {
-//   console.log(arguments); // [5,5] length 2
-//   return a + b;
-// };
-
-// ES6 Arrow function
-// const add = (a, b) => {
-//   console.log(arguments); // ReferenceError: arguments is not defined
-//   return a + b;
-// };
-
-// console.log(add(5, 5));
+// let userName = 'Andrey';
+// let userAge = 30;
+// let userLocation = 'Lincoln';
+// {} any Javascript expression inside
+// {} and any JSX expression inside
+// {} and 'undefined', 'null', 'boolean' are ignored by JSX
 
 
-// This keyword, no longer bound. Arrow functions don't have own context
-var user = {
-  name: 'Andrew',
-  cities: ['Kiev', 'Lincoln', 'New York'],
-
-  // for ES5 function uses own context
-  // printPlacesLived: function (){} - the contexst is object user
-  // printPlacesLived: ()=>{} - the contexst is GLobal Object or in this case undefined
-
-  printPlacesLived: function printPlacesLived() {
-    var _this = this;
-
-    console.log(this.name);
-    console.log(this.cities);
-
-    // let context = this; // for ES5 function uses own context
-    // this.cities.forEach(function (city) {
-    //   console.log(context.name + ' : ' + city);
-    // });
-
-    // Arrow function uses "parent" context. Parent context in this case method printPlacesLived()
-    this.cities.forEach(function (city) {
-      console.log(_this.name + ' : ' + city);
-    });
-  }
-  // testThis: function(){ console.log(this);} // {name: "Andrew", cities: Array(3), printPlacesLived: ƒ, testThis: ƒ}
-  // testThis: ()=>{ console.log(this);} // undefined
-
-};
-// user.printPlacesLived();
-// user.testThis(); 
+// From Babel
+// var template = React.createElement(
+//   "p",
+//   { id: "someid" },
+//   "Something new"
+// );
 
 
-//--------------------------------------------
-// THe same using ES6. New syntax
-// const user2 = {
-//   name : 'Mike',
-//   cities: ['Kiev', 'Lincoln', 'New York'],
-
-//   printPlacesLived() {
-//     console.log(this.name);
-//     console.log(this.cities);
-
-//     this.cities.forEach((city) => { 
-//       console.log(this.name + ' : ' + city);
-//     });
-//   },
-// };
-// user2.printPlacesLived();
+//JSX syntax
+// let template = <p id="someid">Change check</p>;
+// let template = (
+//   <div>
+//     <h1>Andrey</h1>
+//     <p>This is some text</p>
+//     <ol>
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
+// </ol>
+// </div>
+// );
 
 
-var user2 = {
-  name: 'Mike',
-  cities: ['Kiev', 'Lincoln', 'New York'],
-
-  // printPlacesLived() {
-  //   const cityMessages = this.cities.map((city)=>{
-  //     return this.name + ' has lived in ' + city + '!';
-  //   });
-  //   return cityMessages;
-  // },
-
-  // Shorter
-  printPlacesLived: function printPlacesLived() {
-    var _this2 = this;
-
-    return this.cities.map(function (city) {
-      return _this2.name + ' has lived in ' + city + '!';
-    });
-  }
-};
-console.log(user2.printPlacesLived());
-
-// array.forEach(element => {}); Alow you to do something with element
-// array.map(element => {}); Alow you to transform each element
-
-
-// Challenge Arrow functions array.map()
-var multiplier = {
-  numbers: [1, 2, 3],
-  multiplyBy: 3,
-
-  multiply: function multiply() {
-    var _this3 = this;
-
-    return this.numbers.map(function (number) {
-      return number * _this3.multiplyBy;
-    });
-  }
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of computer',
+  options: ['One', 'Two']
 };
 
-console.log(multiplier.multiply());
+// let template = (<div>
+//   <h1> {app.title} </h1>
+//   {app.subtitle && <p> {app.subtitle} </p>}
+//   <p> {app.options.length > 0 ? 'Here your options' : 'No options'} </p>
+//   <ol>
+//     <li> Item 1 </li>
+//     <li> Item 2 </li>
+//     <li> Item 3 </li>
+//     <li> Item 4 </li>
+//   </ol>
+// </div>
+// );
+
+
+// Use variables in JSX
+//-----------------------------------
+// let user = {
+//   name: 'Andrey',
+//   age: 36,
+//   location: 'Lincoln'
+// }
+
+// // let userName = 'Andrey';
+// // let userAge = 30;
+// // let userLocation = 'Lincoln';
+// // {} any Javscript expression inside
+// // {} and any JSX expression inside
+
+// let templateTwo = (
+//   <div>
+//     {/* <h1>{ alert('Hello')}</h1> */}  
+//     {/* <h1>{ userName}</h1> */}  
+//     <h1>{user.name.toUpperCase() + '!'}</h1>
+//     <p>Age: {user.age}</p>
+//     <p>Location: {user.location}</p>
+//   </div>
+// );
+// --------------------------------------
+
+
+// Conditions
+// -------------------------------------
+// let user = {
+//   name: 'Andrey',
+//   age: 36,
+//   location: 'Lincoln'
+// }
+
+// function getLocation(location){
+//   if(location){
+//     return <p>Location: { location }</p>;
+//   } else {
+//     return undefined;
+//   }
+// };
+
+// let templateTwo = (
+//   <div>
+//     <h1>{user.name ? user.name : 'Anonymous'}</h1>
+//     { (user.age && user.age > 19) && <p>Age: {user.age}</p>}
+//     { getLocation(user.location) }
+//   </div>
+// );
+//-----------------------------------------
+
+
+var template = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    ' ',
+    app.title,
+    ' '
+  ),
+  app.subtitle && React.createElement(
+    'p',
+    null,
+    ' ',
+    app.subtitle,
+    ' '
+  ),
+  React.createElement(
+    'p',
+    null,
+    ' ',
+    app.options.length > 0 ? 'Here your options' : 'No options',
+    ' '
+  ),
+  React.createElement(
+    'ol',
+    null,
+    React.createElement(
+      'li',
+      null,
+      ' Item 1 '
+    ),
+    React.createElement(
+      'li',
+      null,
+      ' Item 2 '
+    ),
+    React.createElement(
+      'li',
+      null,
+      ' Item 3 '
+    ),
+    React.createElement(
+      'li',
+      null,
+      ' Item 4 '
+    )
+  )
+);
+
+// Output
+var appRoot = document.getElementById('app'); // root div
+ReactDOM.render(template, appRoot);
+// ReactDOM.render(templateTwo, appRoot);
