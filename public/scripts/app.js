@@ -31,12 +31,11 @@
 // );
 
 
-var app = {
-  title: 'Indecision App',
-  subtitle: 'Put your life in the hands of computer',
-  options: ['One', 'Two']
-};
-
+// let app = {
+//   title: 'Indecision App',
+//   subtitle: 'Put your life in the hands of computer',
+//   options: ['One', 'Two']
+// };
 // let template = (<div>
 //   <h1> {app.title} </h1>
 //   {app.subtitle && <p> {app.subtitle} </p>}
@@ -103,57 +102,51 @@ var app = {
 //-----------------------------------------
 
 
-var template = React.createElement(
+// Events -----------------------------------------
+
+var count = 0;
+var addOne = function addOne() {
+  console.log('addOne');
+};
+var minusOne = function minusOne() {
+  console.log('minusOne', undefined);
+};
+var reset = function reset() {
+  console.log('reset');
+};
+var someId = 'myidhere';
+
+var templateTwo = React.createElement(
   'div',
   null,
   React.createElement(
     'h1',
     null,
-    ' ',
-    app.title,
-    ' '
-  ),
-  app.subtitle && React.createElement(
-    'p',
-    null,
-    ' ',
-    app.subtitle,
-    ' '
+    'Count: ',
+    count
   ),
   React.createElement(
-    'p',
-    null,
-    ' ',
-    app.options.length > 0 ? 'Here your options' : 'No options',
-    ' '
+    'button',
+    { onClick: addOne, className: 'button' },
+    '+1'
   ),
   React.createElement(
-    'ol',
-    null,
-    React.createElement(
-      'li',
-      null,
-      ' Item 1 '
-    ),
-    React.createElement(
-      'li',
-      null,
-      ' Item 2 '
-    ),
-    React.createElement(
-      'li',
-      null,
-      ' Item 3 '
-    ),
-    React.createElement(
-      'li',
-      null,
-      ' Item 4 '
-    )
+    'button',
+    { onClick: minusOne },
+    '-1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: reset },
+    'reset'
   )
 );
 
+console.log(templateTwo);
+// -------------------------------------------------
+
+
 // Output
 var appRoot = document.getElementById('app'); // root div
-ReactDOM.render(template, appRoot);
-// ReactDOM.render(templateTwo, appRoot);
+// ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
