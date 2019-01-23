@@ -5,7 +5,6 @@
 // {} and any JSX expression inside
 // {} and 'undefined', 'null', 'boolean' are ignored by JSX
 
-
 // From Babel
 // var template = React.createElement(
 //   "p",
@@ -13,8 +12,7 @@
 //   "Something new"
 // );
 
-
-//JSX syntax
+// JSX syntax
 // let template = <p id="someid">Change check</p>;
 // let template = (
 //   <div>
@@ -27,7 +25,6 @@
 // </ol>
 // </div>
 // );
-
 
 // let app = {
 //   title: 'Indecision App',
@@ -47,9 +44,8 @@
 // </div>
 // );
 
-
 // Use variables in JSX
-//-----------------------------------
+// -----------------------------------
 // let user = {
 //   name: 'Andrey',
 //   age: 36,
@@ -64,15 +60,14 @@
 
 // let templateTwo = (
 //   <div>
-//     {/* <h1>{ alert('Hello')}</h1> */}  
-//     {/* <h1>{ userName}</h1> */}  
+//     {/* <h1>{ alert('Hello')}</h1> */}
+//     {/* <h1>{ userName}</h1> */}
 //     <h1>{user.name.toUpperCase() + '!'}</h1>
 //     <p>Age: {user.age}</p>
 //     <p>Location: {user.location}</p>
 //   </div>
 // );
 // --------------------------------------
-
 
 // Conditions
 // -------------------------------------
@@ -97,33 +92,60 @@
 //     { getLocation(user.location) }
 //   </div>
 // );
-//-----------------------------------------
+// -----------------------------------------
 
 
 // Events -----------------------------------------
+let count = 0
+let addOne = () => {
+  count++;
+  renderCounterApp();
+};
 
-let count = 0;
-let addOne = ()=>{console.log('addOne');};
-let minusOne = ()=> {console.log('minusOne', this);};
-let reset = ()=>{console.log('reset');};
+let minusOne = () => {
+  count--;
+  renderCounterApp();
+};
+
+let reset = () => {
+  count = 0;
+  renderCounterApp();
+};
+
 let someId = 'myidhere';
 
-let templateTwo = (
-  <div>
-    <h1>Count: {count}</h1>
-    {/* <button id={someId} className="button">+1</button> */}
-    {/* <button onClick={ ()=>{console.log('addOne!');} } className="button">+1</button> */}
-    <button onClick={addOne} className="button">+1</button>
-    <button onClick={minusOne}>-1</button>
-    <button onClick={reset}>reset</button>
-  </div>
-);
+// let templateTwo = (
+//   <div>
+//     <h1>Count: {count}</h1>
+//     {/* <button id={someId} className="button">+1</button> */}
+//     {/* <button onClick={ ()=>{console.log('addOne!');} } className="button">+1</button> */}
+//     <button onClick={addOne} className='button'>
+//       +1
+//     </button>
+//     <button onClick={minusOne}>-1</button>
+//     <button onClick={reset}>reset</button>
+//   </div>
+// )
 
-console.log(templateTwo);
+
+let appRoot = document.getElementById('app');
+let renderCounterApp = ()=>{
+  let templateTwo = (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={addOne} className='button'>+1</button>
+      <button onClick={minusOne}>-1</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  )
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
+
 // -------------------------------------------------
 
-
 // Output
-let appRoot = document.getElementById('app'); // root div
+// let appRoot = document.getElementById('app') // root div
 // ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRoot);
+// ReactDOM.render(templateTwo, appRoot)

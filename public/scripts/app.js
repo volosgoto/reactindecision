@@ -7,7 +7,6 @@
 // {} and any JSX expression inside
 // {} and 'undefined', 'null', 'boolean' are ignored by JSX
 
-
 // From Babel
 // var template = React.createElement(
 //   "p",
@@ -15,8 +14,7 @@
 //   "Something new"
 // );
 
-
-//JSX syntax
+// JSX syntax
 // let template = <p id="someid">Change check</p>;
 // let template = (
 //   <div>
@@ -29,7 +27,6 @@
 // </ol>
 // </div>
 // );
-
 
 // let app = {
 //   title: 'Indecision App',
@@ -49,9 +46,8 @@
 // </div>
 // );
 
-
 // Use variables in JSX
-//-----------------------------------
+// -----------------------------------
 // let user = {
 //   name: 'Andrey',
 //   age: 36,
@@ -66,15 +62,14 @@
 
 // let templateTwo = (
 //   <div>
-//     {/* <h1>{ alert('Hello')}</h1> */}  
-//     {/* <h1>{ userName}</h1> */}  
+//     {/* <h1>{ alert('Hello')}</h1> */}
+//     {/* <h1>{ userName}</h1> */}
 //     <h1>{user.name.toUpperCase() + '!'}</h1>
 //     <p>Age: {user.age}</p>
 //     <p>Location: {user.location}</p>
 //   </div>
 // );
 // --------------------------------------
-
 
 // Conditions
 // -------------------------------------
@@ -99,54 +94,77 @@
 //     { getLocation(user.location) }
 //   </div>
 // );
-//-----------------------------------------
+// -----------------------------------------
 
 
 // Events -----------------------------------------
-
 var count = 0;
 var addOne = function addOne() {
-  console.log('addOne');
+  count++;
+  renderCounterApp();
 };
+
 var minusOne = function minusOne() {
-  console.log('minusOne', undefined);
+  count--;
+  renderCounterApp();
 };
+
 var reset = function reset() {
-  console.log('reset');
+  count = 0;
+  renderCounterApp();
 };
+
 var someId = 'myidhere';
 
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    'Count: ',
-    count
-  ),
-  React.createElement(
-    'button',
-    { onClick: addOne, className: 'button' },
-    '+1'
-  ),
-  React.createElement(
-    'button',
-    { onClick: minusOne },
-    '-1'
-  ),
-  React.createElement(
-    'button',
-    { onClick: reset },
-    'reset'
-  )
-);
+// let templateTwo = (
+//   <div>
+//     <h1>Count: {count}</h1>
+//     {/* <button id={someId} className="button">+1</button> */}
+//     {/* <button onClick={ ()=>{console.log('addOne!');} } className="button">+1</button> */}
+//     <button onClick={addOne} className='button'>
+//       +1
+//     </button>
+//     <button onClick={minusOne}>-1</button>
+//     <button onClick={reset}>reset</button>
+//   </div>
+// )
 
-console.log(templateTwo);
+
+var appRoot = document.getElementById('app');
+var renderCounterApp = function renderCounterApp() {
+  var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h1',
+      null,
+      'Count: ',
+      count
+    ),
+    React.createElement(
+      'button',
+      { onClick: addOne, className: 'button' },
+      '+1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: minusOne },
+      '-1'
+    ),
+    React.createElement(
+      'button',
+      { onClick: reset },
+      'reset'
+    )
+  );
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
+
 // -------------------------------------------------
 
-
 // Output
-var appRoot = document.getElementById('app'); // root div
+// let appRoot = document.getElementById('app') // root div
 // ReactDOM.render(template, appRoot);
-ReactDOM.render(templateTwo, appRoot);
+// ReactDOM.render(templateTwo, appRoot)
