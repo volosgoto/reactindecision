@@ -95,57 +95,37 @@
 // -----------------------------------------
 
 
-// Events -----------------------------------------
-let count = 0
-let addOne = () => {
-  count++;
-  renderCounterApp();
-};
-
-let minusOne = () => {
-  count--;
-  renderCounterApp();
-};
-
-let reset = () => {
-  count = 0;
-  renderCounterApp();
-};
-
-let someId = 'myidhere';
-
-// let templateTwo = (
-//   <div>
-//     <h1>Count: {count}</h1>
-//     {/* <button id={someId} className="button">+1</button> */}
-//     {/* <button onClick={ ()=>{console.log('addOne!');} } className="button">+1</button> */}
-//     <button onClick={addOne} className='button'>
-//       +1
-//     </button>
-//     <button onClick={minusOne}>-1</button>
-//     <button onClick={reset}>reset</button>
-//   </div>
-// )
-
-
-let appRoot = document.getElementById('app');
-let renderCounterApp = ()=>{
-  let templateTwo = (
-    <div>
-      <h1>Count: {count}</h1>
-      <button onClick={addOne} className='button'>+1</button>
-      <button onClick={minusOne}>-1</button>
-      <button onClick={reset}>reset</button>
-    </div>
-  )
-  ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
-
+// Forms
 // -------------------------------------------------
+let onFormSubmit = (event) => {
+  event.preventDefault();
+  console.log('form submited', '8 min');
 
-// Output
-// let appRoot = document.getElementById('app') // root div
-// ReactDOM.render(template, appRoot);
+};
+
+let app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of computer',
+  options: ['One', 'Two']
+};
+let template = (<div>
+  <h1> {app.title} </h1>
+  {app.subtitle && <p> {app.subtitle} </p>}
+  <p> {app.options.length > 0 ? 'Here your options' : 'No options'} </p>
+  <ol>
+    <li> Item 1 </li>
+    <li> Item 2 </li>
+    <li> Item 3 </li>
+    <li> Item 4 </li>
+  </ol>
+  <form onSubmit={onFormSubmit}>
+    <input type="text" name="option" />
+    <button type="submit">Add option</button>
+  </form>
+</div>
+);
+
+
+let appRoot = document.getElementById('app') // root div
+ReactDOM.render(template, appRoot);
 // ReactDOM.render(templateTwo, appRoot)
