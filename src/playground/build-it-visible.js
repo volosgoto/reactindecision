@@ -24,7 +24,7 @@ let render = ()=>{
         (
         <div>
           <p>{app.text}</p>
-        </div>
+        </div> 
         )
       }
     </div>
