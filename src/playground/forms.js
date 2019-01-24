@@ -4,7 +4,7 @@
 // -------------------------------------------------
 let onFormSubmit = (event) => {
   event.preventDefault();
-  console.log('form submited', '8 min');
+  console.log('form submited');
 
 };
 
@@ -33,4 +33,3 @@ let template = (<div>
 
 let appRoot = document.getElementById('app') // root div
 ReactDOM.render(template, appRoot);
-// ReactDOM.render(templateTwo, appRoot)
