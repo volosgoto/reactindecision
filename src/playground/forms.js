@@ -1,5 +1,4 @@
 // Forms
-// -------------------------------------------------
 let app = {
   title: 'Indecision App',
   subtitle: 'Put your life in the hands of computer',
@@ -23,7 +22,6 @@ let onRemoveAll = () => {
   render();
 };
 
-
 let appRoot = document.getElementById('app') // div id="root"
 
 function render() {
@@ -45,8 +43,8 @@ function render() {
     </form>
   </div>
   );
-  
-  ReactDOM.render(template, appRoot);  
+
+  ReactDOM.render(template, appRoot);
 }
 
 render();

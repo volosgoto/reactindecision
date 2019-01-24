@@ -1,21 +1,59 @@
 'use strict';
 
+// Version 1
+
+// let app = {
+//   title: 'Visibility Toggle',
+//   options: ['Show details', 'Hide details'],
+//   text: 'Hey! There some details you can see now'
+// };
+// let root = document.getElementById('app');
+// let visibility = true;
+
+// let onClickToggle = ()=>{
+//   console.log('click');
+//   visibility = !visibility;
+//   render();
+// }
+
+
+// let render = ()=>{
+//   let template = (
+//     <div>
+//       <h1>{app.title}</h1>
+//       <button onClick = {onClickToggle}> {visibility ? app.options[0] : app.options[1] } </button>
+//       {/* <p> { !visibility ? app.text : '' } </p> */}
+//       { !visibility && 
+//         (
+//         <div>
+//           <p>{app.text}</p>
+//         </div> 
+//         )
+//       }
+//     </div>
+//   );
+//   ReactDOM.render(template, root);
+// };
+
+// render();
+
+
+// Version 2
 var app = {
-  title: 'Visibility Toggle',
+  title: 'Visible',
   options: ['Show details', 'Hide details'],
   text: 'Hey! There some details you can see now'
 };
-var root = document.getElementById('app');
-var visibility = true;
 
-var onClickToggle = function onClickToggle() {
-  console.log('click');
-  visibility = !visibility;
+var toggle = true;
+function noClickToggle(params) {
+  toggle = !toggle;
   render();
-};
+}
+var appRoot = document.getElementById('app');
 
-var render = function render() {
-  var template = React.createElement(
+function render() {
+  var content = React.createElement(
     'div',
     null,
     React.createElement(
@@ -25,12 +63,10 @@ var render = function render() {
     ),
     React.createElement(
       'button',
-      { onClick: onClickToggle },
-      ' ',
-      visibility ? app.options[0] : app.options[1],
-      ' '
+      { onClick: noClickToggle },
+      toggle ? app.options[1] : app.options[0]
     ),
-    !visibility && React.createElement(
+    toggle && React.createElement(
       'div',
       null,
       React.createElement(
@@ -40,7 +76,6 @@ var render = function render() {
       )
     )
   );
-  ReactDOM.render(template, root);
-};
-
+  ReactDOM.render(content, appRoot);
+}
 render();

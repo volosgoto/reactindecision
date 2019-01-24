@@ -1,5 +1,6 @@
 // Events -----------------------------------------
-let count = 0
+
+let count = 0;
 let addOne = () => {
   count++;
   renderCounterApp();
