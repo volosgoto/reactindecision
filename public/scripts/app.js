@@ -21,7 +21,7 @@ var onFormSubmit = function onFormSubmit(event) {
 var onRemoveAll = function onRemoveAll() {
   if (app.options.length > 0) {
     app.options = [];
-  };
+  }
   render();
 };
 
@@ -65,26 +65,13 @@ function render() {
     React.createElement(
       'ol',
       null,
-      React.createElement(
-        'li',
-        null,
-        ' Item 1 '
-      ),
-      React.createElement(
-        'li',
-        null,
-        ' Item 2 '
-      ),
-      React.createElement(
-        'li',
-        null,
-        ' Item 3 '
-      ),
-      React.createElement(
-        'li',
-        null,
-        ' Item 4 '
-      )
+      app.options.map(function (elem) {
+        return React.createElement(
+          'li',
+          { key: elem },
+          elem
+        );
+      })
     ),
     React.createElement(
       'form',

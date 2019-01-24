@@ -1,4 +1,4 @@
-// Forms
+// Arrays
 // -------------------------------------------------
 let app = {
   title: 'Indecision App',
@@ -19,12 +19,20 @@ let onFormSubmit = (event) => {
 let onRemoveAll = () => {
   if (app.options.length > 0) {
     app.options = [];
-  }
+  };
   render();
 };
 
 
 let appRoot = document.getElementById('app') // div id="root"
+
+
+let numbers = [55, 101, 1000];
+// let list = numbers.map((elem)=>{
+//   return'<li>' + elem+ '</li>'; // Mutating arry with JSX syntax
+// })
+// console.log(list);
+
 
 function render() {
   let template = (<div>
@@ -33,9 +41,25 @@ function render() {
     <p> {app.options.length > 0 ? 'Here your options' : 'No options'} </p>
     <p>{app.options.length}</p>
     <button onClick={onRemoveAll}>Remove all</button>
+    {/* {
+      [
+        <p key="1">a</p>,
+        <p key="2">b</p>,
+        <p key="3">c</p>,
+      ]
+    } */}
+    {/* {
+      [
+        numbers.map((elem)=>{
+          return <p key={elem}>Number: {elem}</p>
+        })
+      ]
+    } */}
     <ol>
       {
-        app.options.map((elem)=>{ return <li key={elem}>{elem}</li>})
+        app.options.map((elem)=>{
+          return <li key={elem}>{elem}</li>
+        })
       }
     </ol>
     <form onSubmit={onFormSubmit}>

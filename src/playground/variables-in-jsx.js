@@ -20,7 +20,7 @@ JSX supports:
   arrays
 */
 /* 
-JSX ignores:
+JSX ignores, they don't shows up. But they can steel be used, but they newer shows:
   objects
   booleans
   undefined
@@ -32,6 +32,8 @@ JSX ignores:
 // let userAge = 30;
 // let userLocation = 'Lincoln';
 // {} any Javascript expression inside
+// {{<p>123</p>}} any JSX inside JSX 
+// {[{<p>123</p>}, {<p>hello</p>}]} any array of JSX, inside JSX 
 // {} and any JSX expression inside
 // {} and 'undefined', 'null', 'boolean' are ignored by JSX
 
