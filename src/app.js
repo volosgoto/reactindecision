@@ -16,6 +16,13 @@ let onFormSubmit = (event) => {
   }
 };
 
+let onMakeDicision = () => {
+  let randomNum = Math.floor(Math.random() * app.options.length);
+  let options = app.options[randomNum];
+  alert(options);
+  
+};
+
 let onRemoveAll = () => {
   if (app.options.length > 0) {
     app.options = [];
@@ -31,7 +38,8 @@ function render() {
     <h1> {app.title} </h1>
     {app.subtitle && <p> {app.subtitle} </p>}
     <p> {app.options.length > 0 ? 'Here your options' : 'No options'} </p>
-    <p>{app.options.length}</p>
+    {/* <p>{app.options.length}</p> */}
+    <button disabled={app.options.length === 0} onClick={onMakeDicision}>What shoud I do?</button>
     <button onClick={onRemoveAll}>Remove all</button>
     <ol>
       {
@@ -44,7 +52,6 @@ function render() {
     </form>
   </div>
   );
-  
   ReactDOM.render(template, appRoot);  
 }
 
