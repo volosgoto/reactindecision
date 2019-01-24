@@ -13,6 +13,21 @@ let user = {
 // );
 
 
+/* 
+JSX supports:
+  strings
+  numbers
+  arrays
+*/
+/* 
+JSX ignores:
+  objects
+  booleans
+  undefined
+  null
+*/
+
+
 // let userName = 'Andrey';
 // let userAge = 30;
 // let userLocation = 'Lincoln';
