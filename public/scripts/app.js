@@ -1,81 +1,49 @@
 'use strict';
 
-// Version 1
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-// let app = {
-//   title: 'Visibility Toggle',
-//   options: ['Show details', 'Hide details'],
-//   text: 'Hey! There some details you can see now'
-// };
-// let root = document.getElementById('app');
-// let visibility = true;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// let onClickToggle = ()=>{
-//   console.log('click');
-//   visibility = !visibility;
-//   render();
-// }
+// ES6 classes
 
+/*
+Car
+make
+model
+vin
+getDescription()
+ */
+var Person = function () {
+  function Person() {
+    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Anonymous';
+    var age = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
-// let render = ()=>{
-//   let template = (
-//     <div>
-//       <h1>{app.title}</h1>
-//       <button onClick = {onClickToggle}> {visibility ? app.options[0] : app.options[1] } </button>
-//       {/* <p> { !visibility ? app.text : '' } </p> */}
-//       { !visibility && 
-//         (
-//         <div>
-//           <p>{app.text}</p>
-//         </div> 
-//         )
-//       }
-//     </div>
-//   );
-//   ReactDOM.render(template, root);
-// };
+    _classCallCheck(this, Person);
 
-// render();
+    this.name = name;
+    this.age = age;
+  }
 
+  _createClass(Person, [{
+    key: 'getGreeting',
+    value: function getGreeting() {
+      // return 'Hi ' + this.name;
+      return 'Hi i am ' + this.name;
+      // return `Hi i am ${alert(this.name)}`; // any JS expression inside
+    }
+  }, {
+    key: 'getDescription',
+    value: function getDescription() {
+      return this.name + ' is ' + this.age + ' years old';
+    }
+  }]);
 
-// Version 2
-var app = {
-  title: 'Visible',
-  options: ['Show details', 'Hide details'],
-  text: 'Hey! There some details you can see now'
-};
+  return Person;
+}();
 
-var toggle = true;
-function noClickToggle(params) {
-  toggle = !toggle;
-  render();
-}
-var appRoot = document.getElementById('app');
+var me = new Person('Andew Vol', 36);
+console.log(me.name);
+console.log(me.getDescription());
 
-function render() {
-  var content = React.createElement(
-    'div',
-    null,
-    React.createElement(
-      'h1',
-      null,
-      app.title
-    ),
-    React.createElement(
-      'button',
-      { onClick: noClickToggle },
-      toggle ? app.options[1] : app.options[0]
-    ),
-    toggle && React.createElement(
-      'div',
-      null,
-      React.createElement(
-        'p',
-        null,
-        app.text
-      )
-    )
-  );
-  ReactDOM.render(content, appRoot);
-}
-render();
+var other = new Person();
+console.log(other.getDescription());
