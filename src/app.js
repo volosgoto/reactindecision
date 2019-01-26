@@ -1,4 +1,18 @@
 // React.Component require to implement method render()
+
+// let obj = {
+//   name:'Victor',
+//   getName(){
+//     return this.name;
+//   }
+// };
+// // console.log('obj.getName()', obj.getName());
+// // let getName = obj.getName.bind(obj);
+// let getName = obj.getName.bind();
+// console.log(obj.getName.bind({name: 'S'}));
+
+
+
 class IdecisionApp extends React.Component {
   render(){
     let title = 'Indecision';
@@ -45,14 +59,21 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleRemoveAll = this.handleRemoveAll.bind(this); // bind the right context from props
+  }
+
   handleRemoveAll(){
-    alert('removeAll');
+    console.log(this.props.options); // udefined. Context is brocken. To fix that you should add a constructor().
+    
   }
   
-  render() {
+  render() { // only render() has right context from props
     return (
+
       <div>
-        <button onClick={this.handleRemoveAll}>Remove all</button>
+        <button onClick={ this.handleRemoveAll.bind(this) }>Remove all</button>
         <p>Option length: {this.props.options.length}</p>
         {/* { this.props.options.map((option) => <p key={option}>{option}</p>) } */}
         { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
