@@ -1,11 +1,16 @@
 // React.Component require to implement method render()
 class IdecisionApp extends React.Component {
   render(){
+    let title = 'Indecision';
+    let subtitle = 'Put your life in the hands of computer!';
+    let options = ['Thing 1', 'Thing 2', 'Thing 3'];
+    
     return(
       <div>
-        <Header />
+        {/* <Header title="Title test value" info="Test Info"/> */}
+        <Header title={title} subtitle={subtitle}/>
         <Action />
-        <Options />
+        <Options options={options}/>
         <AddOption />
       </div>
     );
@@ -14,14 +19,17 @@ class IdecisionApp extends React.Component {
 
 class Header extends React.Component {
   render() {
+    // console.log(this.props);
     // return (<p>This is from header</p>);
     return (
       <div>
-        <h1>Indecision</h1>
-        <h2>Put your life in the hands of computer</h2>
+        {/* <h1>Indecision</h1> */}
+        <h1>{this.props.title}</h1>
+        {/* <h2>Put your life in the hands of computer</h2> */}
+        <h2>{this.props.subtitle}</h2>
       </div>
     );
-  }
+  } 
 };
 class Action extends React.Component {
   render() {
@@ -37,8 +45,10 @@ class Options extends React.Component {
   render() {
     return (
       <div>
-        Options here!
-        <Option />
+        <p>Option length: {this.props.options.length}</p>
+        {/* { this.props.options.map((option) => <p key={option}>{option}</p>) } */}
+        { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
+        {/* <Option /> */}
       </div>
     );
   }
@@ -47,15 +57,11 @@ class Options extends React.Component {
 
 class Option extends React.Component{
   render(){
+    console.log(this.props);
+    
     return(
-      <div> Option component
-        <ol>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-          <li>Item 5</li>
-        </ol>
+      <div> 
+      Option: {this.props.optionText}
       </div>
     );
   };
