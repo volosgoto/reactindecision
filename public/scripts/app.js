@@ -20,6 +20,11 @@ var Counter = function (_React$Component) {
     _this.addOne = _this.addOne.bind(_this);
     _this.minusOne = _this.minusOne.bind(_this);
     _this.reset = _this.reset.bind(_this);
+
+    _this.state = {
+      count: 0,
+      name: "Sam" // we are not owerriding full state object
+    };
     return _this;
   }
 
@@ -27,16 +32,32 @@ var Counter = function (_React$Component) {
     key: 'addOne',
     value: function addOne() {
       console.log('addOne', this);
+      this.setState(function (prevState) {
+        // same as prevState === this.state
+        return {
+          count: prevState.count + 1
+        };
+      });
     }
   }, {
     key: 'minusOne',
     value: function minusOne() {
       console.log('minusOne', this);
+      this.setState(function (prevState) {
+        return {
+          count: prevState.count - 1
+        };
+      });
     }
   }, {
     key: 'reset',
     value: function reset() {
       console.log('reset', this);
+      this.setState(function () {
+        return {
+          count: 0
+        };
+      });
     }
   }, {
     key: 'render',
@@ -47,7 +68,8 @@ var Counter = function (_React$Component) {
         React.createElement(
           'h1',
           null,
-          'Counter'
+          'Counter: ',
+          this.state.count
         ),
         React.createElement(
           'button',

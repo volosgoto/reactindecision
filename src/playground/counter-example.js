@@ -1,28 +1,48 @@
 // Version 2
 class Counter extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.addOne = this.addOne.bind(this);
-      this.minusOne = this.minusOne.bind(this);
-      this.reset = this.reset.bind(this);
+    this.addOne = this.addOne.bind(this);
+    this.minusOne = this.minusOne.bind(this);
+    this.reset = this.reset.bind(this);
+
+    this.state = {
+      count: 0,
+      name: "Sam" // we are not owerriding full state object
+    };
   }
 
-  addOne(){
-    console.log('addOne', this);
+  addOne() {
+    console.log('addOne', this); 
+    this.setState((prevState)=>{ // same as prevState === this.state
+      return {
+        count: prevState.count + 1
+      };
+    });
   }
 
-  minusOne(){
+  minusOne() {
     console.log('minusOne', this);
+    this.setState((prevState) => {
+      return {
+        count: prevState.count - 1
+      };
+    });
   }
 
-  reset(){
+  reset() {
     console.log('reset', this);
+    this.setState(() => {
+      return {
+        count: 0
+      };
+    });
   }
 
   render() {
     return (
       <div>
-        <h1>Counter</h1>
+        <h1>Counter: {this.state.count}</h1>
         <button onClick={this.addOne}>+1</button>
         <button onClick={this.minusOne}>-1</button>
         <button onClick={this.reset}>Reset</button>
