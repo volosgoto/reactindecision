@@ -8,13 +8,13 @@ class Counter extends React.Component {
 
     this.state = {
       count: 0,
-      name: "Sam" // we are not owerriding full state object
+      name: "Sam" // we are not overriding full state object
     };
   }
 
   addOne() {
-    console.log('addOne', this); 
-    this.setState((prevState)=>{ // same as prevState === this.state
+    console.log('addOne', this);
+    this.setState((prevState) => { // same as prevState === this.state
       return {
         count: prevState.count + 1
       };
@@ -40,18 +40,19 @@ class Counter extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Counter: {this.state.count}</h1>
-        <button onClick={this.addOne}>+1</button>
-        <button onClick={this.minusOne}>-1</button>
-        <button onClick={this.reset}>Reset</button>
-      </div>
+    return ( <
+      div >
+      <
+      h1 > Counter: { this.state.count } < /h1> <
+      button onClick = { this.addOne } > +1 < /button> <
+      button onClick = { this.minusOne } > -1 < /button> <
+      button onClick = { this.reset } > Reset < /button> <
+      /div>
     )
   };
 }
 
-ReactDOM.render(<Counter />, document.getElementById('app'));
+ReactDOM.render( < Counter / > , document.getElementById('app'));
 
 
 // Events -----------------------------------------

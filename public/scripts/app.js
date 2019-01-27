@@ -23,7 +23,7 @@ var Counter = function (_React$Component) {
 
     _this.state = {
       count: 0,
-      name: "Sam" // we are not owerriding full state object
+      name: "Sam" // we are not overriding full state object
     };
     return _this;
   }
@@ -68,24 +68,29 @@ var Counter = function (_React$Component) {
         React.createElement(
           'h1',
           null,
-          'Counter: ',
-          this.state.count
+          ' Counter: ',
+          this.state.count,
+          ' '
         ),
+        ' ',
         React.createElement(
           'button',
           { onClick: this.addOne },
-          '+1'
+          ' +1 '
         ),
+        ' ',
         React.createElement(
           'button',
           { onClick: this.minusOne },
-          '-1'
+          ' -1 '
         ),
+        ' ',
         React.createElement(
           'button',
           { onClick: this.reset },
-          'Reset'
-        )
+          ' Reset '
+        ),
+        ' '
       );
     }
   }]);
