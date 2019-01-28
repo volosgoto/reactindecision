@@ -18,7 +18,9 @@ class IdecisionApp extends React.Component {
   }
 
   handlePick() {
-    alert('test');
+    let randomNum = Math.floor(Math.random() * this.state.options.length);
+    let options = this.state.options[randomNum];
+    alert(options);
   }
   
   render() {

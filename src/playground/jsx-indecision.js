@@ -20,7 +20,6 @@ let onMakeDicision = () => {
   let randomNum = Math.floor(Math.random() * app.options.length);
   let options = app.options[randomNum];
   alert(options);
-  
 };
 
 let onRemoveAll = () => {

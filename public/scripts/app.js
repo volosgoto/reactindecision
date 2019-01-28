@@ -37,7 +37,9 @@ var IdecisionApp = function (_React$Component) {
   }, {
     key: "handlePick",
     value: function handlePick() {
-      alert('test');
+      var randomNum = Math.floor(Math.random() * this.state.options.length);
+      var options = this.state.options[randomNum];
+      alert(options);
     }
   }, {
     key: "render",
