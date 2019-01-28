@@ -17,6 +17,8 @@ var IdecisionApp = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (IdecisionApp.__proto__ || Object.getPrototypeOf(IdecisionApp)).call(this, props));
 
     _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
+    _this.handlePick = _this.handlePick.bind(_this);
+
     _this.state = {
       options: ["Thing 1", "Thing 2", "Thing 4"]
     };
@@ -33,6 +35,11 @@ var IdecisionApp = function (_React$Component) {
       });
     }
   }, {
+    key: "handlePick",
+    value: function handlePick() {
+      alert('test');
+    }
+  }, {
     key: "render",
     value: function render() {
       var title = "Indecision";
@@ -42,7 +49,10 @@ var IdecisionApp = function (_React$Component) {
         "div",
         null,
         React.createElement(Header, { title: title, subtitle: subtitle }),
-        React.createElement(Action, { hasOptions: this.state.options > 0 }),
+        React.createElement(Action, {
+          hasOptions: this.state.options > 0,
+          handlePick: this.handlePick
+        }),
         React.createElement(Options, {
           options: this.state.options,
           handleDeleteOptions: this.handleDeleteOptions
@@ -97,20 +107,16 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
-    key: "handlePick",
-    value: function handlePick() {
-      alert("handlePick");
-    }
-  }, {
     key: "render",
     value: function render() {
+
       return React.createElement(
         "div",
         null,
         React.createElement(
           "button",
           {
-            onClick: this.handlePick,
+            onClick: this.props.handlePick,
             disabled: this.props.hasOptions
           },
           "What should i do?"

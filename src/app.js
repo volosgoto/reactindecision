@@ -2,6 +2,8 @@ class IdecisionApp extends React.Component {
   constructor(props){
     super(props);
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
+    this.handlePick = this.handlePick.bind(this);
+
     this.state = {
       options : ["Thing 1", "Thing 2", "Thing 4"],
     };
@@ -14,6 +16,10 @@ class IdecisionApp extends React.Component {
       };
     });
   }
+
+  handlePick() {
+    alert('test');
+  }
   
   render() {
     let title = "Indecision";
@@ -22,7 +28,10 @@ class IdecisionApp extends React.Component {
     return (
       <div>
         <Header title={title} subtitle={subtitle} />
-        <Action hasOptions={this.state.options > 0}/>
+        <Action 
+          hasOptions={this.state.options > 0}
+          handlePick = {this.handlePick}
+        />
         <Options 
           options={this.state.options}
           handleDeleteOptions = {this.handleDeleteOptions}
@@ -45,14 +54,13 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-  handlePick() {
-    alert("handlePick");
-  }
   render() {
+
+    
     return (
       <div>
         <button 
-          onClick={this.handlePick}
+          onClick={this.props.handlePick}
           disabled={this.props.hasOptions}
         >
         What should i do?
