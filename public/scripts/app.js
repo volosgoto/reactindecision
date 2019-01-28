@@ -8,18 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// React.Component require to implement method render()
-// let obj = {
-//   name:'Victor',
-//   getName(){
-//     return this.name;
-//   }
-// };
-// // console.log('obj.getName()', obj.getName());
-// // let getName = obj.getName.bind(obj);
-// let getName = obj.getName.bind();
-// console.log(obj.getName.bind({name: 'S'}));
-
 var IdecisionApp = function (_React$Component) {
   _inherits(IdecisionApp, _React$Component);
 
@@ -28,14 +16,23 @@ var IdecisionApp = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (IdecisionApp.__proto__ || Object.getPrototypeOf(IdecisionApp)).call(this, props));
 
+    _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
     _this.state = {
-      // options : ["Thing 1", "Thing 2", "Thing 4"],
-      options: []
+      options: ["Thing 1", "Thing 2", "Thing 4"]
     };
     return _this;
   }
 
   _createClass(IdecisionApp, [{
+    key: "handleDeleteOptions",
+    value: function handleDeleteOptions() {
+      this.setState(function () {
+        return {
+          options: []
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var title = "Indecision";
@@ -46,7 +43,10 @@ var IdecisionApp = function (_React$Component) {
         null,
         React.createElement(Header, { title: title, subtitle: subtitle }),
         React.createElement(Action, { hasOptions: this.state.options > 0 }),
-        React.createElement(Options, { options: this.state.options }),
+        React.createElement(Options, {
+          options: this.state.options,
+          handleDeleteOptions: this.handleDeleteOptions
+        }),
         React.createElement(AddOption, null)
       );
     }
@@ -67,8 +67,6 @@ var Header = function (_React$Component2) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      // console.log(this.props);
-      // return (<p>This is from header</p>);
       return React.createElement(
         "div",
         null,
@@ -113,9 +111,9 @@ var Action = function (_React$Component3) {
           "button",
           {
             onClick: this.handlePick,
-            disabled: !this.props.hasOptions
+            disabled: this.props.hasOptions
           },
-          "What shoud I do?"
+          "What should i do?"
         )
       );
     }
@@ -127,30 +125,21 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
   _inherits(Options, _React$Component4);
 
-  function Options(props) {
+  function Options() {
     _classCallCheck(this, Options);
 
-    var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
-
-    _this4.handleRemoveAll = _this4.handleRemoveAll.bind(_this4); // bind the right context from props
-    return _this4;
+    return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
   }
 
   _createClass(Options, [{
-    key: "handleRemoveAll",
-    value: function handleRemoveAll() {
-      console.log(this.props.options); // udefined. Context is brocken. To fix that you should add a constructor().
-    }
-  }, {
     key: "render",
     value: function render() {
-      // only render() has right context from props
       return React.createElement(
         "div",
         null,
         React.createElement(
           "button",
-          { onClick: this.handleRemoveAll },
+          { onClick: this.props.handleDeleteOptions },
           "Remove all"
         ),
         React.createElement(
@@ -181,7 +170,6 @@ var Option = function (_React$Component5) {
   _createClass(Option, [{
     key: "render",
     value: function render() {
-      // console.log(this.props);
       return React.createElement(
         "div",
         null,
@@ -207,7 +195,6 @@ var AddOption = function (_React$Component6) {
     key: "handleAddOption",
     value: function handleAddOption(e) {
       console.log("handleAddOption", this);
-
       e.preventDefault();
       var option = e.target.elements.option.value;
       option.trim();
@@ -238,17 +225,5 @@ var AddOption = function (_React$Component6) {
   return AddOption;
 }(React.Component);
 
-// let jsx = (
-//   <div>
-//     {/* <h1>Title</h1> */}
-//     <Header />
-//     <Action />
-//     <Options />
-//     <AddOption />
-
-//   </div>
-// );
-
 var root = document.getElementById("app");
-// ReactDOM.render(jsx, root);
 ReactDOM.render(React.createElement(IdecisionApp, null), root);
