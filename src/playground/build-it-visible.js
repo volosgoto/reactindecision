@@ -1,5 +1,5 @@
 // Version 1
-
+//------------------------------------------------------
 // let app = {
 //   title: 'Visibility Toggle',
 //   options: ['Show details', 'Hide details'],
@@ -38,36 +38,71 @@
 
 
 // Version 2
-let app = {
-  title: 'Visible',
-  options: ['Show details', 'Hide details'],
-  text: 'Hey! There some details you can see now'
-};
-
-let toggle = true;
-function noClickToggle(params) {
-  toggle = !toggle;
-  render();
-}
-let appRoot = document.getElementById('app');
+// let app = {
+//   title: 'Visible',
+//   options: ['Show details', 'Hide details'],
+//   text: 'Hey! There some details you can see now'
+// };
 
 
-function render() {
-  let content = (
-    <div>
-      <h1>{app.title}</h1>
-      <button onClick={noClickToggle}>{toggle ? app.options[1] : app.options[0]}</button>
-      {
-        toggle && (
-          <div>
-            <p>{app.text}</p>
-          </div>
-        )
+// // Version 2====================================================
+// let toggle = true;
+// function noClickToggle(params) {
+//   toggle = !toggle;
+//   render();
+// }
+// let appRoot = document.getElementById('app');
+
+// function render() {
+//   let content = (
+//     <div>
+//       <h1>{app.title}</h1>
+//       <button onClick={noClickToggle}>{toggle ? app.options[1] : app.options[0]}</button>
+//       {
+//         toggle && (
+//           <div>
+//             <p>{app.text}</p>
+//           </div>
+//         )
+//       }
+//     </div>
+//   );
+//   ReactDOM.render(content, appRoot);
+// }
+// render();
+// ==========================================================
+
+
+class VisibilityToggle extends React.Component{
+  constructor(props){
+    super(props);
+    this.noClickToggle = this.noClickToggle.bind(this);
+    
+    this.state = {
+      'click': false,
+    };
+  }
+  noClickToggle(){
+    this.setState((prevState)=>{
+      return {
+        'click' : !prevState.click
       }
-    </div>
-  );
-  ReactDOM.render(content, appRoot);
+    });
+  }
+  render(){
+    return(
+      <div>
+        <button onClick={this.noClickToggle}>{this.state.click ? 'Show' : 'Hide' }</button> 
+        {/* <p>{this.state.click ? '' : 'Some text' }</p> */}
+          {!this.state.click && (
+            <div>
+              <p>'Some text'</p>
+            </div>
+          )
+        }
+      </div>
+    );
+  };
 }
-render();
 
-
+ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));

@@ -1,5 +1,4 @@
 // React.Component require to implement method render()
-
 // let obj = {
 //   name:'Victor',
 //   getName(){
@@ -12,17 +11,25 @@
 // console.log(obj.getName.bind({name: 'S'}));
 
 class IdecisionApp extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      // options : ["Thing 1", "Thing 2", "Thing 4"],
+      options : [],
+    };
+  }
+
   render() {
     let title = "Indecision";
     let subtitle = "Put your life in the hands of computer!";
-    let options = ["Thing 1", "Thing 2", "Thing 3"];
 
     return (
       <div>
         {/* <Header title="Title test value" info="Test Info"/> */}
         <Header title={title} subtitle={subtitle} />
-        <Action />
-        <Options options={options} />
+        <Action hasOptions={this.state.options > 0}/>
+        <Options options={this.state.options} />
         <AddOption />
       </div>
     );
@@ -43,6 +50,7 @@ class Header extends React.Component {
     );
   }
 }
+
 class Action extends React.Component {
   handlePick() {
     alert("handlePick");
@@ -50,7 +58,12 @@ class Action extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handlePick}>What shoud I do?</button>
+        <button 
+          onClick={this.handlePick}
+          disabled={!this.props.hasOptions}
+        >
+          What shoud I do?
+          </button>
       </div>
     );
   }
@@ -85,8 +98,7 @@ class Options extends React.Component {
 
 class Option extends React.Component {
   render() {
-    console.log(this.props);
-
+    // console.log(this.props);
     return <div>Option: {this.props.optionText}</div>;
   }
 }
