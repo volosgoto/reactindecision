@@ -28,7 +28,27 @@ var IndecisionApp = function (_React$Component) {
     return _this;
   }
 
+  // Life-cycle -----
+
+
   _createClass(IndecisionApp, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      console.log('componentDidMount');
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState) {
+      console.log('componentDidUpdate');
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount(prevProps, prevState) {
+      console.log('componentWillUnmount');
+    }
+    // Life cycle -----
+
+  }, {
     key: 'handleDeleteOptions',
     value: function handleDeleteOptions() {
       this.setState(function () {
