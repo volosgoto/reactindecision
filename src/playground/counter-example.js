@@ -5,9 +5,8 @@ class Counter extends React.Component {
     this.addOne = this.addOne.bind(this);
     this.minusOne = this.minusOne.bind(this);
     this.reset = this.reset.bind(this);
-
     this.state = {
-      count: 0,
+      count: props.count,
       name: "Sam" // we are not overriding full state object
     };
   }
@@ -40,19 +39,24 @@ class Counter extends React.Component {
   }
 
   render() {
-    return ( <
-      div >
-      <
-      h1 > Counter: { this.state.count } < /h1> <
-      button onClick = { this.addOne } > +1 < /button> <
-      button onClick = { this.minusOne } > -1 < /button> <
-      button onClick = { this.reset } > Reset < /button> <
-      /div>
+    return ( 
+    <div>
+      <h1> Counter: { this.state.count } </h1>
+      <button onClick = { this.addOne } > +1 </button> 
+      <button onClick = { this.minusOne } > -1 </button> 
+      <button onClick = { this.reset } > Reset </button> 
+    </div>
     )
   };
 }
 
-ReactDOM.render( < Counter / > , document.getElementById('app'));
+Counter.defaultProps = {
+  count : 0
+}
+
+
+// ReactDOM.render( <Counter count={-10}/> , document.getElementById('app'));
+ReactDOM.render( <Counter /> , document.getElementById('app'));
 
 
 // Events -----------------------------------------
