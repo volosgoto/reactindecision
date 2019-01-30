@@ -183,7 +183,7 @@ var Options = function Options(props) {
       { onClick: props.handleDeleteOptions },
       'Remove All'
     ),
-    undefined.props.length === 0 && React.createElement(
+    props.options.length === 0 && React.createElement(
       'p',
       null,
       'Please add an option'
