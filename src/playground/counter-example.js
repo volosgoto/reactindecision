@@ -18,7 +18,7 @@ class Counter extends React.Component {
     if(!isNaN(count)){
       this.setState(()=>({count}));
     }
-
+ 
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -26,7 +26,6 @@ class Counter extends React.Component {
       localStorage.setItem('count', this.state.count);
     }
   }
-
 
   addOne () {
     this.setState((prevState) => {
