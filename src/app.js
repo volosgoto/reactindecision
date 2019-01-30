@@ -14,10 +14,21 @@ class IndecisionApp extends React.Component {
 
   // Life-cycle -----
   componentDidMount(){
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
+    let json = localStorage.getItem('options');
+    let options = JSON.parse(json);
+    if (options) {
+      this.setState(prevState => ({
+        options: options
+      }));
+    }
   }
   componentDidUpdate(prevProps, prevState){
-    console.log('componentDidUpdate');
+    if (prevState.options.length !== this.state.options.length) {
+      let json = JSON.stringify(this.state.options);
+      localStorage.setItem('options', json);
+      console.log('saving data');
+    }
   }
   componentWillUnmount(prevProps, prevState){
     console.log('componentWillUnmount');
@@ -127,7 +138,7 @@ const Option = (props) => {
           props.handleDeleteOption(props.optionText);
         }}
       >
-        remove
+        remove item
       </button>
     </div>
   );

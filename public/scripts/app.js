@@ -34,12 +34,25 @@ var IndecisionApp = function (_React$Component) {
   _createClass(IndecisionApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      console.log('componentDidMount');
+      // console.log('componentDidMount');
+      var json = localStorage.getItem('options');
+      var options = JSON.parse(json);
+      if (options) {
+        this.setState(function (prevState) {
+          return {
+            options: options
+          };
+        });
+      }
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(prevProps, prevState) {
-      console.log('componentDidUpdate');
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+        console.log('saving data');
+      }
     }
   }, {
     key: 'componentWillUnmount',
@@ -187,7 +200,7 @@ var Option = function Option(props) {
           props.handleDeleteOption(props.optionText);
         }
       },
-      'remove'
+      'remove item'
     )
   );
 };
