@@ -1,7 +1,7 @@
 // stateless functional component
 
 class IndecisionApp extends React.Component {
-  constructor(props) {
+    constructor(props) {
     super(props);
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
