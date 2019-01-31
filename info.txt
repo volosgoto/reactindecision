@@ -38,3 +38,7 @@ Check npm in system $PATH
   babel src/app.js --out-file=public/scripts/app.js --presets=env,react
     for watch changes
    babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+6. Webpack
+  yarn add webpack@3.1.0  
+  then create 'webpack.config.js' in root project folder
