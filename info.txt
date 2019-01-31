@@ -42,3 +42,12 @@ Check npm in system $PATH
 6. Webpack
   yarn add webpack@3.1.0  
   then create 'webpack.config.js' in root project folder
+    basis config
+      const PATH = require('path');
+      module.exports = {
+        entry : './src/app.js',
+        output : {
+          path : PATH.join(__dirname, 'public'),
+          filename : 'bundle.js'
+        },
+      };
