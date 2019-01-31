@@ -69,17 +69,21 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__person__ = __webpack_require__(2);
 // import './utils';
 // import { square, sum } from './utils';
+ // subtract is a default export (this can be any name)
 
+
+console.log(__WEBPACK_IMPORTED_MODULE_1__person__["a" /* default */](66));
 
 // console.log('app.js is running!');
 // // console.log(square(4));
 // console.log('app sum', sum(4, 100));
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__person__["b" /* isAdult */](18));
-console.log(__WEBPACK_IMPORTED_MODULE_0__person__["a" /* canDrink */](__WEBPACK_IMPORTED_MODULE_0__person__["b" /* isAdult */]));
+// console.log(isAdult(18));
+// console.log(canDrink(isAdult));
 
 
 
@@ -87,13 +91,45 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__person__["a" /* canDrink */](__WEBPACK_
 
 
 /***/ }),
-/* 1 */,
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export square */
+/* unused harmony export sum */
+/* unused harmony export default */
+console.log('utils.js is running');
+
+
+// exports - single default export - named export
+
+
+function square(x) {
+  return x * x;
+}
+function sum(a, b){
+  return a + b;
+}
+// export{ square, sum } // !!! NOT OBJECT DEFINITION
+
+// default export
+let subtract = (a, b)=>{
+  return a - b;
+};
+
+// export default subtract;
+// export default (a, b) => a - b;
+
+
+
+
+/***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isAdult; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return canDrink; });
+/* unused harmony export isAdult */
+/* unused harmony export canDrink */
 
 let isAdult = (age)=>{
   return (age >=18) ? true : false;
@@ -102,6 +138,9 @@ let isAdult = (age)=>{
 let canDrink = (isAdult)=>{
   return isAdult(15) ? 'yes' : 'no';
 };
+
+let isSenior = (age)=> age > 65;
+/* harmony default export */ __webpack_exports__["a"] = (isSenior);
 
 
 

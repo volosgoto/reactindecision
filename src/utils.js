@@ -2,25 +2,22 @@ console.log('utils.js is running');
 
 
 // exports - single default export - named export
-// function square(x) {
-//   return x * x;
-// }
-// function sum(a, b){
-//   return a + b;
-// }
-// console.log('utils', sum(10, 10));
 
+
+function square(x) {
+  return x * x;
+}
+function sum(a, b){
+  return a + b;
+}
 // export{ square, sum } // !!! NOT OBJECT DEFINITION
 
-// export function square(x) {
-//   return x * x;
-// }
-// export function sum(a, b){
-//   return a + b;
-// }
-// console.log('utils', sum(10, 10));
-// export{ square, sum } // !!! NOT OBJECT DEFINITION
+// default export
+let subtract = (a, b)=>{
+  return a - b;
+};
 
+// export default subtract;
+// export default (a, b) => a - b;
 
-
-
+export{ square, sum, subtract as default};
