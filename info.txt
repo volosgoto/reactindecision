@@ -51,3 +51,7 @@ Check npm in system $PATH
           filename : 'bundle.js'
         },
       };
+
+ 7. Istall react and react-dom     
+
+

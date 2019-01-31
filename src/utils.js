@@ -1,9 +1,4 @@
-console.log('utils.js is running');
-
-
 // exports - single default export - named export
-
-
 function square(x) {
   return x * x;
 }

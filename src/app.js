@@ -1,17 +1,7 @@
-// import './utils';
-// import { square, sum } from './utils';
-import subtract, { square, sum } from './utils'; // subtract is a default export (this can be any name)
-import isSenior, { isAdult, canDrink } from './person';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log(isSenior(66));
+// let template = (<p>test 123</p>); // Error
+let template = React.createElement('p', {}, 'test123');
 
-// console.log('app.js is running!');
-// // console.log(square(4));
-// console.log('app sum', sum(4, 100));
-
-// console.log(isAdult(18));
-// console.log(canDrink(isAdult));
-
-
-
-
+ReactDOM.render(template, document.getElementById('app'));
