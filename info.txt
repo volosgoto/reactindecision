@@ -38,3 +38,26 @@ Check npm in system $PATH
   babel src/app.js --out-file=public/scripts/app.js --presets=env,react
     for watch changes
    babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+6. Webpack
+  yarn add webpack@3.1.0  
+  then create 'webpack.config.js' in root project folder
+    basis config
+      const PATH = require('path');
+      module.exports = {
+        entry : './src/app.js',
+        output : {
+          path : PATH.join(__dirname, 'public'),
+          filename : 'bundle.js'
+        },
+      };
+
+ 7. Install react and react-dom     
+
+8. Install  babel and presets for use from webpack
+
+  sudo yarn add babel-core@6.25.0
+  sudo yarn add babel-loader@7.1.1
+
+9 create in the root
+ .babelrc
