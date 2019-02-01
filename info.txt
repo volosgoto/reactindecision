@@ -52,6 +52,12 @@ Check npm in system $PATH
         },
       };
 
- 7. Istall react and react-dom     
+ 7. Install react and react-dom     
 
+8. Install  babel and presets for use from webpack
 
+  sudo yarn add babel-core@6.25.0
+  sudo yarn add babel-loader@7.1.1
+
+9 create in the root
+ .babelrc
