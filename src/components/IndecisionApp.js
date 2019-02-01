@@ -22,12 +22,12 @@ componentDidMount(){
   
   try {
     let json = localStorage.getItem('options');
-  let options = JSON.parse(json);
-  if (options) {
-    this.setState(prevState => ({
-      options: options
-    }));
-  }  
+    let options = JSON.parse(json);
+    if (options) {
+      this.setState(prevState => ({
+        options: options
+      }));
+    }
   } catch (error) {
     // Do nothing
   }

@@ -61,3 +61,6 @@ Check npm in system $PATH
 
 9 create in the root
  .babelrc
+
+10. webpack-dev-server
+  sudo yarn add webpack-dev-server@2.5.1
