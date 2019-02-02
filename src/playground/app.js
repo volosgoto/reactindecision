@@ -193,3 +193,24 @@ render() {
 // };
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+
+
+
+// // props children components
+// let Layout = (props)=>{
+//   return (
+// <div>
+//   <p>Header</p>
+//   {/* {props.content} */}
+//   {props.children}  
+//   <p>Footer</p>
+// </div>
+// );
+// };
+
+// let template = (
+// <div>
+// <h1>Page title</h1>
+// <p>Text</p>
+// </div>
+// );
