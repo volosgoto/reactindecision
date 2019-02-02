@@ -66,4 +66,4 @@ Check npm in system $PATH
   sudo yarn add webpack-dev-server@2.5.1
 
 11. react-modal
-sudo yarn add react-modal@2.2.2
+sudo yarn add react-modal
