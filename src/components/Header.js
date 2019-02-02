@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Header = (props) => {
   return (
     <div>
@@ -8,10 +7,10 @@ const Header = (props) => {
       {props.subtitle && <h2>{props.subtitle}</h2>}
     </div>
   );
-  };
-  
-  Header.defaultProps = {
-  title: 'Indecision'
-  };
+};
 
-  export default Header;
+Header.defaultProps = {
+  title: 'Indecision'
+};
+
+export default Header;

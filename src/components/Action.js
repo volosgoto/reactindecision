@@ -11,6 +11,6 @@ const Action = (props) => {
       </button>
     </div>
   );
-  };
+};
 
-  export default Action;
+export default Action;
