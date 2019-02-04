@@ -1,33 +1,27 @@
-
-// Arrow function always anonymous
-// This keyword, no longer bound. Arrow functions don't have own context
-// Arguments functions no longer bound with arrow functions
-
-
-// ES5 function declaration
-// let square = function (x) {
-//   return x * x;
-// }; 
-// console.log(square(8));
-
-
-// let squareArr =(x)=>{
+// function square(x) {
 //   return x * x;
 // };
 
+// console.log(square(3));
 
-// let squareArr = () => x * x; // returns x * x;
-// console.log(squareArr(5));
+// // const squareArrow = (x) => {
+// //   return x * x;
+// // };
 
+// const squareArrow = (x) => x * x;
 
-// Challenge arrow functions
-let userName = 'Sam Smith';
-let getFirstName = (name)=>{    
-  return name.split(' ')[0];
-};
-console.log(getFirstName(userName));
+// console.log(squareArrow(4));
 
 
-let getFirstNameTwo = (name) => name.split(' ')[0];
-let userNameTwo = 'Mike Stone';
-console.log(getFirstNameTwo(userNameTwo));
+// Challenge - Use arrow functions
+// getFirstName('Mike Smith') -> "Mike"
+// Create regular arrow function
+// Create arrow function using shorthand syntax
+
+// const getFirstName = (fullName) => {
+//   return fullName.split(' ')[0];
+// };
+
+const getFirstName = (fullName) => fullName.split(' ')[0];
+
+console.log(getFirstName('Andrew Mead'));
