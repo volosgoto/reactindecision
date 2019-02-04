@@ -1,25 +1,30 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js run dev-server
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add style-loader@0.18.2 scc-loader@0.28.4
 
 PATH: 
-  /home/andrey/.rbenv/plugins/ruby-build/bin:/home/andrey/.rbenv/shims:/home/andrey/.rbenv/bin:/home/andrey/.rvm/gems/ruby-2.5.3/bin:/home/andrey/.rvm/gems/ruby-2.5.3@global/bin:/home/andrey/.rvm/rubies/ruby-2.5.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/npm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin:/home/andrey/.rvm/bin
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
 
 Yarn version: 
-  1.13.0
+  1.6.0
 
 Node version: 
-  11.7.0
+  8.10.0
 
 Platform: 
   linux x64
 
 Trace: 
-  SyntaxError: /var/www/reactindecision.loc/package.json: Unexpected token } in JSON at position 291
-      at JSON.parse (<anonymous>)
-      at /usr/share/yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:304:30)
-      at /usr/share/yarn/lib/cli.js:315:13
+  Error: https://registry.yarnpkg.com/scc-loader: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:65327:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:133155:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:134138:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:134058:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
 
 npm manifest: 
   {
@@ -32,21 +37,23 @@ npm manifest:
     "scripts": {
       "serve": "live-server public/",
       "build": "webpack",
+      "dev-server": "webpack-dev-server"
     },
     "dependencies": {
       "babel-cli": "6.24.1",
       "babel-core": "6.25.0",
       "babel-loader": "7.1.1",
+      "babel-plugin-transform-class-properties": "6.24.1",
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "live-server": "^1.2.0",
-      "react": "16.0.0",
-      "react-dom": "16.0.0",
+      "react": "15.6.1",
+      "react-dom": "15.6.1",
+      "react-modal": "^3.8.1",
       "validator": "8.0.0",
       "webpack": "3.1.0",
       "webpack-dev-server": "2.5.1"
-    },
-    "devDependencies": {}
+    }
   }
 
 yarn manifest: 
@@ -473,6 +480,11 @@ Lockfile:
     version "6.13.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
   
+  babel-plugin-syntax-class-properties@^6.8.0:
+    version "6.13.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
+    integrity sha1-1+sjt5oxf4VDlixQW4J8fWysJ94=
+  
   babel-plugin-syntax-exponentiation-operator@^6.8.0:
     version "6.13.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz#9ee7e8337290da95288201a6a57f4170317830de"
@@ -496,6 +508,16 @@ Lockfile:
       babel-helper-remap-async-to-generator "^6.24.1"
       babel-plugin-syntax-async-functions "^6.8.0"
       babel-runtime "^6.22.0"
+  
+  babel-plugin-transform-class-properties@6.24.1:
+    version "6.24.1"
+    resolved "https://registry.yarnpkg.com/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.24.1.tgz#6a79763ea61d33d36f37b611aa9def81a81b46ac"
+    integrity sha1-anl2PqYdM9NvN7YRqp3vgagbRqw=
+    dependencies:
+      babel-helper-function-name "^6.24.1"
+      babel-plugin-syntax-class-properties "^6.8.0"
+      babel-runtime "^6.22.0"
+      babel-template "^6.24.1"
   
   babel-plugin-transform-es2015-arrow-functions@^6.22.0:
     version "6.22.0"
@@ -1327,6 +1349,15 @@ Lockfile:
       safe-buffer "^5.0.1"
       sha.js "^2.4.8"
   
+  create-react-class@^15.6.0:
+    version "15.6.3"
+    resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
+    integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
+    dependencies:
+      fbjs "^0.8.9"
+      loose-envify "^1.3.1"
+      object-assign "^4.1.1"
+  
   crypto-browserify@^3.11.0:
     version "3.12.0"
     resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-3.12.0.tgz#396cf9f3137f03e4b8e532c58f698254e00f80ec"
@@ -1677,6 +1708,11 @@ Lockfile:
       md5.js "^1.3.4"
       safe-buffer "^5.1.1"
   
+  exenv@^1.2.0:
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+    integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
+  
   expand-brackets@^0.1.4:
     version "0.1.5"
     resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
@@ -1790,9 +1826,10 @@ Lockfile:
     dependencies:
       websocket-driver ">=0.5.1"
   
-  fbjs@^0.8.16:
+  fbjs@^0.8.9:
     version "0.8.17"
     resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
+    integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
     dependencies:
       core-js "^1.0.0"
       isomorphic-fetch "^2.1.1"
@@ -3221,9 +3258,10 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.6.0:
+  prop-types@^15.5.10:
     version "15.6.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
+    integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
     dependencies:
       loose-envify "^1.3.1"
       object-assign "^4.1.1"
@@ -3326,23 +3364,41 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
-  react-dom@16.0.0:
-    version "16.0.0"
-    resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
+  react-dom@15.6.1:
+    version "15.6.1"
+    resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
+    integrity sha1-LLDtQZEDjlPCCes6eaI+Kkz5lHA=
     dependencies:
-      fbjs "^0.8.16"
+      fbjs "^0.8.9"
       loose-envify "^1.1.0"
-      object-assign "^4.1.1"
-      prop-types "^15.6.0"
+      object-assign "^4.1.0"
+      prop-types "^15.5.10"
   
-  react@16.0.0:
-    version "16.0.0"
-    resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
+  react-lifecycles-compat@^3.0.0:
+    version "3.0.4"
+    resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+    integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  
+  react-modal@^3.8.1:
+    version "3.8.1"
+    resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.8.1.tgz#7300f94a6f92a2e17994de0be6ccb61734464c9e"
+    integrity sha512-aLKeZM9pgXpIKVwopRHMuvqKWiBajkqisDA8UzocdCF6S4fyKVfLWmZR5G1Q0ODBxxxxf2XIwiCP8G/11GJAuw==
     dependencies:
-      fbjs "^0.8.16"
+      exenv "^1.2.0"
+      prop-types "^15.5.10"
+      react-lifecycles-compat "^3.0.0"
+      warning "^3.0.0"
+  
+  react@15.6.1:
+    version "15.6.1"
+    resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+    integrity sha1-uqhDTsZ4C96ZfNw4C3nNM7ljk98=
+    dependencies:
+      create-react-class "^15.6.0"
+      fbjs "^0.8.9"
       loose-envify "^1.1.0"
-      object-assign "^4.1.1"
-      prop-types "^15.6.0"
+      object-assign "^4.1.0"
+      prop-types "^15.5.10"
   
   read-pkg-up@^1.0.1:
     version "1.0.1"
@@ -4087,6 +4143,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
     dependencies:
       indexof "0.0.1"
+  
+  warning@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+    integrity sha1-MuU3fLVy3kqwR1O9+IIcAe1gW3w=
+    dependencies:
+      loose-envify "^1.0.0"
   
   watchpack@^1.3.1:
     version "1.6.0"

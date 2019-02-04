@@ -1,21 +1,27 @@
-// entry -> output
-const PATH = require('path');
+const path = require('path');
 
 module.exports = {
-  entry : './src/app.js',
-  output : {
-    path : PATH.join(__dirname, 'public'),
-    filename : 'bundle.js'
+  entry: './src/app.js',
+  output: {
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
   },
-  module: { // loader
+  module: {
     rules: [{
-      loader : 'babel-loader',
+      loader: 'babel-loader',
       test: /\.js$/,
-      exclude : /node-modules/
-    }],
+      exclude: /node_modules/
+    }, {
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
+    }]
   },
-  devtool: "cheap-module-eval-source-map", //errors source-map
-  devServer : {
-    contentBase : PATH.join(__dirname, 'public')
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
   }
 };
