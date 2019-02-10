@@ -71,3 +71,6 @@ sudo yarn add react-modal
 12. Styles
   npm install --save-dev css-loader
   npm install style-loader --save-dev
+
+13. A modern, HTML5-ready alternative to CSS resets
+  npm install normalize.css  
